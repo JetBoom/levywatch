@@ -143,18 +143,18 @@ namespace levywatch
 			}
 			else
 			{
-				Levy levy = LevyList.GetAllEnabled()[T_LevyID];
-				if (levy != null && levy.x >= 0)
+				List<Levy> levies = LevyList.GetAllEnabled();
+				if (T_LevyID < levies.Count)
 				{
-					/*if (levy.Enabled)
-					{*/
+					Levy levy = levies[T_LevyID];
+					if (levy != null && levy.x >= 0)
+					{
 						MoveMouseTo(levy.x, levy.y);
 						if (T_WaitTicks == 1)
 						{
 							ScreenGrab();
 							InitiateOCR();
 							int perc = ParseOCR();
-							//Console.WriteLine("Percent for " + levy.Name + ": " + perc + "%");
 							if (perc == -1)
 							{
 								levy.FailedLastCheck = true;
@@ -166,17 +166,17 @@ namespace levywatch
 								levy.SetPercent(perc);
 							}
 						}
-					/*}
-					else
-						T_WaitTicks = 0;*/
+					}
 				}
+				else
+					T_WaitTicks = 0;
 
 				T_WaitTicks--;
 				if (T_WaitTicks <= 0)
 				{
 					T_WaitTicks = LevyWatch.WAITTICKS;
 					T_LevyID++;
-					if (T_LevyID >= LevyList.GetAllEnabled().Count)
+					if (T_LevyID >= levies.Count)
 						T_LevyID = -1;
 				}
 			}
