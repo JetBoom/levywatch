@@ -28,8 +28,8 @@ namespace levywatch
 		public const int WAITTICKS = 6;
 
 		// Screen coords
-		public const int MAPCENTERBUTTONX = 12;
-		public const int MAPCENTERBUTTONY = 626;
+		public static int MAPCENTERBUTTONX = 12;
+		public static int MAPCENTERBUTTONY = 626;
 
 		// Statistics
 		public static float POPULARITY_VERYHOT = 0.75f;
@@ -117,6 +117,24 @@ namespace levywatch
 						case "GAME_WINDOW_SUBSTRING":
 						{
 							DFWINDOWTITLE = value;
+
+							break;
+						}
+						case "MAP_CENTER_BUTTON_X":
+						{
+							int ival = -1;
+							int.TryParse(value, out ival);
+							if (ival > 0)
+								MAPCENTERBUTTONX = ival;
+
+							break;
+						}
+						case "MAP_CENTER_BUTTON_Y":
+						{
+							int ival = -1;
+							int.TryParse(value, out ival);
+							if (ival > 0)
+								MAPCENTERBUTTONY = ival;
 
 							break;
 						}
