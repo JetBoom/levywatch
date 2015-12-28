@@ -3,6 +3,8 @@ Created by William Moodhe / JetBoom
 williammoodhe@gmail.com
 http://www.github.com/jetboom
 
+As of Oct. 2015, a patch has been released for the game that removes the Levy percentages on the world map (the fault of which is mostly this program). Only players in the clan that owns them can see the percentages, making this program not very useful.
+
 You can grab pre-built releases at: http://www.noxiousnet.com/jetboom/levywatch/releases/
 
 
